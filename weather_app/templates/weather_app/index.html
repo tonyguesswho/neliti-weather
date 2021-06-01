@@ -24,14 +24,15 @@
 			<div class="columns">
 				<div class="column is-offset-4 is-4">
 					<form method="POST">
+						{% csrf_token %}
 						<div class="field">
 							<p class="control">
-								<input class="input" type="text" placeholder="latitude">
+								<input class="input" name="lat" type="text" placeholder="latitude">
 							</p>
 						</div>
 						<div class="field">
 							<p class="control">
-								<input class="input" type="text" placeholder="longitude">
+								<input class="input" type="text" name="long" placeholder="longitude">
 							</p>
 						</div>
 						<div class="control">
@@ -53,10 +54,14 @@
 							<div class="media-content">
 								<div class="content">
 									<p>
-										<span class="title">Las Vegas</span>
+										<span class="title">Latest weather</span>
 										<br>
-										<span class="subtitle">29° F</span>
-										<br> thunderstorm with heavy rain
+										<span class="subtitle"></span>
+										<br> Air Temperature : {{weather_data.air_temperature}}
+										<br> Pressure : {{weather_data.air_pressure_at_sea_level}}
+										<br> Wind speed : {{weather_data.wind_speed}}
+										<br> Humidity : {{weather_data.relative_humidity}}
+
 									</p>
 								</div>
 							</div>
