@@ -3,9 +3,13 @@ import requests
 import json 
 
 def index(request):
+	# defaults
 	lat = 51.5
 	lon = -0.25
-	# Todo get input from user
+	if request.method == 'POST':
+		lat = request.POST['lon']
+		lon = request.POST['lat']
+
 
 	url = f'https://api.met.no/weatherapi/locationforecast/2.0/compact?lat={lat}&lon={lon}'
 
